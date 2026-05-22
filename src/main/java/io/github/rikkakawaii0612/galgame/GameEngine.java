@@ -8,6 +8,8 @@ import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
@@ -92,6 +94,20 @@ public class GameEngine {
             }
             if (!waitingForChoice) {
                 advanceText();
+            }
+        });
+        scene.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.SPACE) {
+                if (playingOp) {
+                    return;
+                }
+                if (optionJustSelected) {
+                    optionJustSelected = false;   // 重置标志
+                    return;                       // 忽略此次点击，不推进文本
+                }
+                if (!waitingForChoice) {
+                    advanceText();
+                }
             }
         });
     }

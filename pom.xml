@@ -56,10 +56,16 @@
                     <target>25</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
+                <configuration>
+                    <mainClass>
+                        io.github.rikkakawaii0612.galgame/io.github.rikkakawaii0612.galgame.App
+                    </mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
